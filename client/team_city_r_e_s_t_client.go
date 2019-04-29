@@ -33,7 +33,7 @@ import (
 	"github.com/VladimirKravtsov/teamcity-api-client-2017-2/client/vcs_root_instance"
 )
 
-// Default teamcity rest HTTP client.
+// Default team city r e s t HTTP client.
 var Default = NewHTTPClient(nil)
 
 const (
@@ -48,14 +48,14 @@ const (
 // DefaultSchemes are the default schemes found in Meta (info) section of spec file
 var DefaultSchemes = []string{"https"}
 
-// NewHTTPClient creates a new teamcity rest HTTP client.
-func NewHTTPClient(formats strfmt.Registry) *TeamcityRest {
+// NewHTTPClient creates a new team city r e s t HTTP client.
+func NewHTTPClient(formats strfmt.Registry) *TeamCityREST {
 	return NewHTTPClientWithConfig(formats, nil)
 }
 
-// NewHTTPClientWithConfig creates a new teamcity rest HTTP client,
+// NewHTTPClientWithConfig creates a new team city r e s t HTTP client,
 // using a customizable transport config.
-func NewHTTPClientWithConfig(formats strfmt.Registry, cfg *TransportConfig) *TeamcityRest {
+func NewHTTPClientWithConfig(formats strfmt.Registry, cfg *TransportConfig) *TeamCityREST {
 	// ensure nullable parameters have default
 	if cfg == nil {
 		cfg = DefaultTransportConfig()
@@ -66,14 +66,14 @@ func NewHTTPClientWithConfig(formats strfmt.Registry, cfg *TransportConfig) *Tea
 	return New(transport, formats)
 }
 
-// New creates a new teamcity rest client
-func New(transport runtime.ClientTransport, formats strfmt.Registry) *TeamcityRest {
+// New creates a new team city r e s t client
+func New(transport runtime.ClientTransport, formats strfmt.Registry) *TeamCityREST {
 	// ensure nullable parameters have default
 	if formats == nil {
 		formats = strfmt.Default
 	}
 
-	cli := new(TeamcityRest)
+	cli := new(TeamCityREST)
 	cli.Transport = transport
 
 	cli.Agent = agent.New(transport, formats)
@@ -158,8 +158,8 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 	return cfg
 }
 
-// TeamcityRest is a client for teamcity rest
-type TeamcityRest struct {
+// TeamCityREST is a client for team city r e s t
+type TeamCityREST struct {
 	Agent *agent.Client
 
 	AgentPool *agent_pool.Client
@@ -204,7 +204,7 @@ type TeamcityRest struct {
 }
 
 // SetTransport changes the transport on the client and all its subresources
-func (c *TeamcityRest) SetTransport(transport runtime.ClientTransport) {
+func (c *TeamCityREST) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
 
 	c.Agent.SetTransport(transport)

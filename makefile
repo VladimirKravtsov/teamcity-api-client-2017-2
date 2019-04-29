@@ -8,7 +8,7 @@
     all: deps run
     generate-teamcity-client:
 		docker pull quay.io/goswagger/swagger
-		$(SWAGGER) generate client -f teamcity-swagger-spec.json -t ./teamcity --skip-validation --default-scheme=https
+		$(SWAGGER) generate client -f teamcity-swagger-spec.json --skip-validation --default-scheme=https
     build:
 		$(GOBUILD)
     clean:
