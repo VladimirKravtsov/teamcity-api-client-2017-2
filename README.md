@@ -57,11 +57,8 @@ Which is essentially comprehensive [swagger](https://swagger.io) specification o
 By passing the spec to [go-swagger](https://github.com/go-swagger/go-swagger) tool 
 we are able to get working client code(API requests and DTO models) automatically. This approach enables to be type-safe 
 and maintain consistency the client with actual API. More about benefits you can find on the its site.
-  
-As for now, the client provides only Build API client.  
-  
-Normally, you no need to re-generate the client, but in case of TC server was updated or if you will need access to other 
-APIs re-generation should take place. There are 2 possible options - 
+ 
+There are 2 possible options - 
 
 1) Install [go-swagger](https://github.com/go-swagger/go-swagger) binary locally, for instance, using homebrew. Then run -
 ```swagger generate client -f teamcity-swagger-spec.json --skip-validation --default-scheme=https```
